@@ -6,10 +6,11 @@
         <span class="font-weight-light">MATERIAL DESIGN</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn
-        @click="updateOccupation('Computer Programmer')">
-      >
-        <span class="mr-2">Latest Release</span>
+      <v-btn @click="updateOccupation('Computer Programmer')">
+        <span class="mr-2">Programmer</span>
+      </v-btn>
+      <v-btn @click="updateOccupation('Grunge Musician')">
+        <span class="mr-2">Grunge</span>
       </v-btn>
     </v-toolbar>
 

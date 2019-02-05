@@ -44,7 +44,7 @@ const actions = {
         commit('updateTrends', payload.trend_comparison);
         commit('updateIndustries', payload.employing_industries);
       }
-    }).catch(commit('updateInfo', { title: occupationTitle, onet: 'ERROR' })); // Fetch new data from API
+    }); // Fetch new data from API
   },
   clearOccupation: ({ commit }) => {
     /*
@@ -61,11 +61,12 @@ const actions = {
 // Mutations
 const mutations = {
   /* eslint-disable */
-  updateInfo: (state, newInfo) => { console.log(state); state.info = newInfo; },
+  updateInfo: (state, newInfo) => { state.info = newInfo; },
   updateRegion: (state, newRegion) => { state.region = newRegion; },
   updateSummary: (state, newSummary) => { state.summary = newSummary; },
   updateTrends: (state, newTrends) => { state.trends = newTrends; },
   updateIndustries: (state, newIndustries) => { state.industries = newIndustries; },
+  /* eslint-enable */
 };
 
 export default {
