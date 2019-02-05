@@ -31,8 +31,11 @@ export default {
       //
     };
   },
+  mounted() {
+    this.$store.dispatch('occupation/updateOccupation', 'None');
+  },
   computed: mapState({
-    occupationData: state => state.all,
+    occupationData: state => state.occupation.info,
   }),
   methods: mapActions('occupation', [
     'updateOccupation',
