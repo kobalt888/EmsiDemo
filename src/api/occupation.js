@@ -11,7 +11,7 @@ export async function getJobData(jobTitle) {
       .catch(error => error.toString());
   } else if (jobTitle === 'Bed Tester') {
     return axios
-      .get('http://www.mocky.io/v2/5c5b3aae3900006200e05677?mocky-delay=500ms')
+      .get('http://www.mocky.io/v2/5c5b3ed23900001300e05687?mocky-delay=500ms')
       .then(response => response.data)
       .catch(error => error.toString());
   }

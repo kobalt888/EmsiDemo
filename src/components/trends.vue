@@ -107,6 +107,10 @@ export default {
           },
         },
         yaxis: {
+          axisBorder: {
+            show: true,
+            color: '#78909C',
+          },
           title: {
             text: 'Percent Change in Jobs Year-to-Year',
           },

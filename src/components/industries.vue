@@ -4,7 +4,7 @@
       <h3 class="headline mb-2">Industries Employing {{jobTitle}} </h3>
     </v-card-title>
     <v-card-media>
-      <apexchart type="bar" :options="chartOptions" :series="series"></apexchart>
+      <apexchart id type="bar" :options="chartOptions" :series="series"></apexchart>
     </v-card-media>
   </v-card>
 </template>
@@ -20,13 +20,21 @@ export default {
       for (let i = 0; i < newData.length; i++) {
         industryList.push(`${newData[i].title} (${newData[i].in_occupation_jobs} jobs)`);
       }
-      this.chartOptions.xaxis.categories = industryList;
 
+      this.chartOptions = { ...this.chartOptions,
+        ...{
+          xaxis: {
+            categories: industryList,
+          },
+        },
+      };
       this.series[0].name = `% of Occupation in Industry (${this.year})`;
       this.series[1].name = `% of Total Jobs in Industry (${this.year})`;
 
       this.generatePercentOccupationInIndustry();
       this.generatePercentTotalInIndustry();
+
+
     },
   },
   methods: {
@@ -58,6 +66,9 @@ export default {
   },
   data() {
     return {
+      chart: {
+        id: 'Occupation-Industries',
+      },
       series: [{
         name: '',
         data: [],
@@ -88,7 +99,6 @@ export default {
           width: 1,
           colors: ['#fff'],
         },
-
         xaxis: {
           categories: [],
         },
