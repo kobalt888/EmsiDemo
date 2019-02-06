@@ -15,13 +15,14 @@
     </v-toolbar>
 
     <v-content>
-      <p>{{ occupationData }}</p>
+      <p>{{ info }}</p>
+      <p>{{ summary }}</p>
     </v-content>
   </v-app>
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'App',
@@ -35,9 +36,12 @@ export default {
   mounted() {
     this.$store.dispatch('occupation/updateOccupation', 'None');
   },
-  computed: mapState({
-    occupationData: state => state.occupation.info,
-  }),
+  computed: {
+    ...mapGetters('occupation', {
+      info: 'occupationInfo',
+      summary: 'occupationSummary',
+    }),
+  },
   methods: mapActions('occupation', [
     'updateOccupation',
   ]),

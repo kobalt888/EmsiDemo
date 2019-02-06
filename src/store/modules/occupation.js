@@ -15,11 +15,28 @@ const getters = {
   /*
   Functions for accessing state
    */
-  occupationInfo: () => state.info,
-  occupationRegion: () => state.region,
-  occupationSummary: () => state.summary,
-  occupationTrends: () => state.trends,
-  occupationIndustries: () => state.industries,
+
+  // Occupation
+  getTitle: () => state.info.title,
+
+  // Region
+  getRegion: () => state.region.title,
+
+  // Summary
+  getJobSummary: () => state.summary.jobs,
+  getGrowthSummary: () => state.summary.jobs_growth,
+  getEarningSummary: () => state.summary.jobs.earnings,
+
+  // Trends
+  getTrendTimeSpan: () => [state.trends.start_year, state.trends.end_year],
+  getRegionalTrend: () => state.trends.regional,
+  getStateTrend: () => state.trends.state,
+  getNationalTrend: () => state.trends.nation,
+
+  // Industries
+  getYear: () => state.industries.year,
+  getJobCount: () => state.industries.jobs,
+  getIndustries: () => state.industries.industries
 };
 
 // Actions
@@ -29,9 +46,6 @@ const actions = {
     Attempts to fetch occupation data from API for a given occupation, and mutate the state
     accordingly
      */
-
-    // eslint-disable-next-line
-    console.log(occupationTitle);
     actions.clearOccupation({ commit }); // Remove existing data from state for occupation
     getJobData(occupationTitle).then((payload) => {
       // eslint-disable-next-line
@@ -61,6 +75,7 @@ const actions = {
 // Mutations
 const mutations = {
   /* eslint-disable */
+  // ^^ False no-shadow  ^^
   updateInfo: (state, newInfo) => { state.info = newInfo; },
   updateRegion: (state, newRegion) => { state.region = newRegion; },
   updateSummary: (state, newSummary) => { state.summary = newSummary; },
