@@ -11,11 +11,15 @@
 
 <script>
 import { mapGetters } from 'vuex';
+/* eslint-disable no-plusplus */
+/* eslint-disable max-len */
+/* eslint-disable prefer-template */
+/* eslint-disable padded-blocks */
 
 export default {
   name: 'industries',
   watch: {
-    industryData: function (newData) {
+    industryData(newData) {
       const industryList = [];
       for (let i = 0; i < newData.length; i++) {
         industryList.push(`${newData[i].title} (${newData[i].in_occupation_jobs} jobs)`);

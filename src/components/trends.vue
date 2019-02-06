@@ -91,6 +91,9 @@
 
 <script>
 import { mapGetters } from 'vuex';
+/* eslint-disable no-plusplus */
+/* eslint-disable prefer-template */
+
 
 export default {
   name: 'trends',
