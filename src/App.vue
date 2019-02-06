@@ -1,49 +1,45 @@
 <template>
   <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn @click="updateOccupation('Computer Programmer')">
-        <span class="mr-2">Programmer</span>
-      </v-btn>
-      <v-btn @click="updateOccupation('Grunge Musician')">
-        <span class="mr-2">Grunge</span>
-      </v-btn>
-    </v-toolbar>
-
-    <v-content>
-      <p>{{ info }}</p>
-      <p>{{ summary }}</p>
-    </v-content>
+    <overview></overview>
+    <v-container grid-list-md text-xs-center>
+      <v-layout row wrap>
+        <v-flex xs12>
+          <occupationselect></occupationselect>
+        </v-flex>
+        <v-flex xs12>
+          <datasummary></datasummary>
+        </v-flex>
+        <v-flex xs12 xl6 height="100%">
+          <trends></trends>
+        </v-flex>
+        <v-flex xs12 xl6 height="100%">
+          <industries></industries>
+        </v-flex>
+      </v-layout>
+    </v-container>
   </v-app>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import datasummary from '@/components/datasummary';
+import trends from '@/components/trends';
+import overview from '@/components/overview';
+import industries from '@/components/industries';
+import occupationselect from '@/components/occupationselect';
 
 export default {
   name: 'App',
   components: {
+    overview,
+    trends,
+    datasummary,
+    industries,
+    occupationselect,
   },
   data() {
     return {
       //
     };
   },
-  mounted() {
-    this.$store.dispatch('occupation/updateOccupation', 'None');
-  },
-  computed: {
-    ...mapGetters('occupation', {
-      info: 'occupationInfo',
-      summary: 'occupationSummary',
-    }),
-  },
-  methods: mapActions('occupation', [
-    'updateOccupation',
-  ]),
 };
 </script>
