@@ -56,15 +56,15 @@ export default {
     max-width: 30%;
   }
   .loader-img {
-    margin-top: 25%;
+    margin-top: 10%;
     width: 256px;
     height: 256px;
   }
   .loader-div {
     position: fixed;
     top: 8%;
-    left: 4%;
-    width: 92%;
+    left: 0%;
+    width: 100%;
     height: 92%;
     z-index: 1000;
     background-color: rgba(174, 183, 196, .5);
